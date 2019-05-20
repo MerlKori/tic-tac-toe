@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from "react-router-dom";
+import routerList from '../router/router-list';
 import Input from '../components/Input';
+import RadioGroup from '../components/RadioGroup';
 
-function StartView ({players, handlerChangeName, startGame}) {
+function StartView ({players, onChangeName, levels, activeLevel, onChangeSetting}) {
 	return (
-		<div className="start-page">
+		<div className="start-view">
 			{
 				Object.keys(players).map((key, idx) => {
 					return (
@@ -12,21 +15,30 @@ function StartView ({players, handlerChangeName, startGame}) {
 							key={idx}
 							playerName={players[key]}
 							playerKey={key}
-							onChangeHandler={handlerChangeName} />
+							onChangeName={onChangeName} />
 					)
 				})
 			}
-			<button
-				onClick={startGame}
-				className="class">start game</button>
+
+			<RadioGroup
+				label="Level of difficulty"
+				defaultChecked={activeLevel}
+				list={levels}
+				onChange={onChangeSetting} />
+
+			<Link
+				to={routerList.game}
+				className="users">start</Link>
 		</div>
 	)
 }
 
 StartView.propTypes = {
 	players: PropTypes.object,
-	handlerChangeName: PropTypes.func,
-	startGame: PropTypes.func
+	onChangeName: PropTypes.func,
+	onChangeSetting: PropTypes.func,
+	levels: PropTypes.array,
+	activeLevel: PropTypes.string
 };
 
 export default StartView;

@@ -1,0 +1,44 @@
+input,
+textarea {
+	--c-placeholder: rgba(0,0,0, .3);
+	--c-border: var(--c-grey-4);
+}
+input:focus,
+textarea:focus,
+.field-focus {
+	--c-placeholder: rgba(0,0,0, .0);
+	--c-border: var(--c-blue-4);
+}
+
+input,
+textarea {
+	width: 100%;
+	border: 1px solid var(--c-border);
+	border-radius: 3px;
+	color: #7d7a7a;
+	padding: 5px 15px;
+	transition: border-color .2s;
+	cursor: text;
+}
+
+/* placeholder style */
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+	transition: color .25s;
+	color: var(--c-placeholder);
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+	transition: color .25s;
+	color:var(--c-placeholder);
+}
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+	transition: color .25s;
+	color: var(--c-placeholder);
+}
+input::placeholder,
+textarea::placeholder {
+	transition: color .25s;
+	color: var(--c-placeholder);
+}

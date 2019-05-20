@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Input ({playerName, playerKey, onChangeHandler}) {
+function Input ({playerName, playerKey, onChangeName}) {
 	return (
 		<input
-			onChange={e => onChangeHandler(playerKey, e.target.value)}
+			onChange={e => onChangeName(playerKey, e.target.value)}
 			value={playerName}
 			placeholder="Player name"
 			type="text"/>
@@ -14,7 +14,7 @@ function Input ({playerName, playerKey, onChangeHandler}) {
 Input.propTypes = {
 	playerName: PropTypes.string,
 	playerKey: PropTypes.string,
-	onChangeHandler: PropTypes.func
+	onChangeName: PropTypes.func
 }
 
 export default Input;

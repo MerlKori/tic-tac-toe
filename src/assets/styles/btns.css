@@ -1,0 +1,235 @@
+.btn {
+	position: relative;
+	display: inline-block;
+	padding: .5em 1em;
+	border-radius: .25em;
+	font-size: 14px;
+	letter-spacing: .1em;
+	text-transform: capitalize;
+	white-space: nowrap;
+	user-select: none;
+	overflow: hidden;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: filter .25s, background-color .25s, color .25s, border-color .25s;
+}
+
+.btn-small {
+	position: relative;
+	display: inline-block;
+	width: 2.1em;
+	height: 2.1em;
+	border-radius: .2em;
+	line-height: 1;
+	user-select: none;
+	overflow: hidden;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: all .3s;
+}
+.btn--sm {
+	position: relative;
+	display: inline-block;
+	width: 1.8em;
+	height: 1.8em;
+	border-radius: .2em;
+	line-height: 1;
+	user-select: none;
+	overflow: hidden;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: all .3s;
+}
+/* .btn-round {
+	position: relative;
+	display: inline-block;
+	width: 2em;
+	height: 2em;
+	border-radius: 50%;
+	line-height: 1;
+	user-select: none;
+	overflow: hidden;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: all .3s;
+} */
+
+/* click style */
+.btn-click {
+	position: relative;
+}
+.btn-click::after {
+	content: '';
+	position: absolute;
+	top: -15px;
+	left: -15px;
+	width: calc(100% + 30px);
+	height: calc(100% + 30px);
+	background-color: #fff;
+	border-radius: 50%;
+	opacity: 0;
+	transition: transform .35s, opacity .35s;
+}
+.btn-click:active::after {
+	transition: none;
+	opacity: .7;
+	transform: scale(0);
+}
+
+/* ================= btns color scheme ============================ */
+
+/* blue */
+.btn--blue-1 {
+	border: 1px solid #409EFF;
+	color: #409EFF;
+	background-color: #ecf5ff;
+}
+.btn--blue-1:hover {
+	border-color: #409EFF;
+	background-color: #409EFF;
+	color: #fff;
+}
+.btn--blue-2 {
+	border: 1px solid #409EFF;
+	color: #fff;
+	background-color: #409EFF;
+}
+.btn--blue-2:hover {
+	border-color: #66b1ff;
+	background-color: #66b1ff;
+}
+.btn--blue-3 {
+	border: 1px solid #3585FE;
+	color: #fff;
+	background-color: #3585FE;
+}
+.btn--blue-3:hover {
+	border-color: #40A0FF;
+	background-color: #40A0FF;
+}
+.btn--blue-4 {
+	border: 1px solid #3588D2;
+	color: #fff;
+	background-color: #3588D2;
+}
+.btn--blue-4:hover {
+	border-color: #176ED1;
+	background-color: #176ED1;
+}
+.btn--blue-5 {
+	border: 1px solid #1352ba;
+	color: #fff;
+	background-color: #1352ba;
+}
+.btn--blue-5:hover {
+	border-color: #0973FE;
+	background-color: #0973FE;
+}
+
+/* red */
+.btn--red-1 {
+	border: 1px solid #fbc4c4;
+	color: #f56c6c;
+	background-color: #fef0f0;
+}
+.btn--red-1:hover {
+	border-color: #f56c6c;
+	background-color: #f56c6c;
+	color: #fff;
+}
+.btn--red-2 {
+	border: 1px solid #F45557;
+	color: #fff;
+	background-color: #F45557;
+}
+.btn--red-2:hover {
+	border-color: #f56c6c;
+	background-color: #f56c6c;
+}
+/* .btn--red-2 {
+	border: 1px solid #f56c6c;
+	color: #fff;
+	background-color: #f56c6c;
+}
+.btn--red-2:hover {
+	border-color: #f78989;
+	background-color: #f78989;
+} */
+
+/* green */
+.btn--green-1 {
+	border: 1px solid #c2e7b0;
+	color: #67c23a;
+	background-color: #f0f9eb;
+}
+.btn--green-1:hover {
+	border-color: #67c23a;
+	background-color: #67c23a;
+	color: #fff;
+}
+.btn--green-2 {
+	border: 1px solid #67c23a;
+	color: #fff;
+	background-color: #67c23a;
+}
+.btn--green-2:hover {
+	border-color: #85ce61;
+	background-color: #85ce61;
+}
+.btn--green-3 {
+	color: #fff;
+	background-color: var(--c-green-6);
+}
+.btn--green-3:hover {
+	border-color: var(--c-green-5);
+}
+.btn--green-4 {
+	border: 1px solid #42C139;
+	color: #fff;
+	background-color: #42C139;
+}
+.btn--green-4:hover {
+	border-color: #4BDB40;
+	background-color: #4BDB40;
+}
+.btn--green-5 {
+	border: 1px solid #00C760;
+	color: #fff;
+	background-color: #00C760;
+}
+.btn--green-5:hover {
+	border-color: #00C760;
+	background-color: #00D231;
+}
+
+/* Orange */
+.btn--orange-1 {
+	border: 1px solid var(--c-orange-4);
+	color: #fff;
+	background-color: var(--c-orange-4);
+}
+.btn--orange-1:hover {
+	border-color: var(--c-orange-3);
+	background-color: var(--c-orange-3);
+}
+
+/* transparent */
+.btn--cancel {
+	border: 1px solid var(--c-grey-5);
+	color: #656565;
+	background-color: transparent;
+}
+.btn--cancel:hover {
+	border-color: var(--c-red-5);
+	color: var(--c-red-5);
+}
+
+/* disabled */
+button:disabled {
+	opacity: .5;
+	pointer-events: none;
+}

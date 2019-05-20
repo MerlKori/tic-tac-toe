@@ -1,2 +1,7 @@
 @import url('./reset.css');
+@import url('./colors.css');
+@import url('./fields.css');
+@import url('./btns.css');
+
+@import url('./start-view.css');
 @import url('./game.css');
