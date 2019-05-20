@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Cell (idx, list) {
+function Cell ({value, onClick}) {
 	return (
-		<div>
-			{list[idx]}
+		<div
+			className="board__cells"
+			onClick={onClick} >
+			{value}
 		</div>
 	);
 }
 
 Cell.propTypes = {
-	idx: PropTypes.number,
-	list: PropTypes.array
+	value: PropTypes.string,
+	onClick: PropTypes.func
 };
 
 export default Cell;

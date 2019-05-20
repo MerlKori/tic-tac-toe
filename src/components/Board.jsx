@@ -1,38 +1,56 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 /* components */
 import BoardCell from "./BoardCell";
 
-function createArr (length) {
-	return Array.from(Array(length), (x, idx) => idx + 1);
+function createBoardMap (size) {
+	const length = size * size;
+	return Array(length).fill(null);
 }
-
-// function methodName (arguments) {
-// 	// body
-// }
 
 class Board extends React.Component {
 	constructor (props) {
 		super(props);
 		this.state = {
-			board: []
+			board: createBoardMap(props.size)
 		}
 	}
 
-	createBoard = (props) => {
+	setMoveData = idx => {
+		const copyBoard = [...this.state.board];
+		copyBoard[idx] = this.props.activeLabel;
+
 		this.setState({
-			board: createArr(props.size)
+			board: [...copyBoard]
 		});
+	}
+
+	move = cellIdx => {
+		if (!!this.state.board[cellIdx]) return;
+
+		this.setMoveData(cellIdx);
+		this.props.onMove(cellIdx);
 	}
 
 	render() {
 		return (
 			<div className="board">
-				{}
+				{
+					this.state.board.map((value, idx) => <BoardCell
+						key={idx}
+						onClick={() => this.move(idx)}
+						value={value} />)
+				}
 			</div>
 		)
 	}
+};
+
+Board.propTypes = {
+	size: PropTypes.number,
+	activeLabel: PropTypes.string,
+	onMove: PropTypes.func
 };
 
 export default Board;

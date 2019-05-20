@@ -1,9 +1,9 @@
 import React from 'react';
 // import {BrowserRouter, Route} from "react-router-dom";
-import './App.css';
-import StartGame from './views/StartGame';
+import './assets/styles/index.css';
+// import StartGame from './views/StartGame';
 import Game from './views/Game';
-import ResultGame from './views/ResultGame';
+// import ResultGame from './views/ResultGame';
 
 const viewsList = {
 	start: 1,
@@ -22,7 +22,6 @@ class App extends React.Component {
 			winner: null,
 			activeView: viewsList.start
 		};
-		debugger
 		this.setActiveView = this.setActiveView.bind(this);
 		this.setPlayerName = this.setPlayerName.bind(this);
 		this.setWinner = this.setWinner.bind(this);
@@ -48,15 +47,15 @@ class App extends React.Component {
 	}
 
 	render () {
-		let view;
+		// let view;
 
-		if (this.state.activeView === viewsList.start) view = <StartGame startGame={this.setActiveView(viewsList.game)} players={this.state.players} handlerChangeName={this.setPlayerName} />
-		if (this.state.activeView === viewsList.game) view = <Game players={this.state.players} />
-		if (this.state.activeView === viewsList.result) view = <ResultGame />
+		// if (this.state.activeView === viewsList.start) view = <StartGame startGame={this.setActiveView(viewsList.game)} players={this.state.players} handlerChangeName={this.setPlayerName} />
+		// if (this.state.activeView === viewsList.game) view = <Game players={this.state.players} />
+		// if (this.state.activeView === viewsList.result) view = <ResultGame />
 
 		return (
 			<div className='App'>
-				{view}
+				<Game players={this.state.players} />
 				{/* <BrowserRouter>
 					<Route exact path="/" component={StartGame} />
 					<Route exact path="/processing" component={Game} />

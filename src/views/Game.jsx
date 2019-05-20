@@ -20,31 +20,36 @@ class Game extends React.Component {
 			},
 			history: []
 		};
-
-		this.setActivePlayer = this.setActivePlayer.bind(this);
-		this.setHistory = this.setHistory.bind(this);
 	}
 
-	setActivePlayer () {
-		this.setState({
+	changeActivePlayer = () => {
+		this.setState((state, props) => ({
 			activePlayer: {
-				name: this.state.activePlayer.name === this.props.players.player_1 ? this.props.players.player_2 : this.props.players.player_1,
-				label: this.state.activePlayer.label === 'X' ? 'O' : 'X'
+				name: state.activePlayer.name === props.players.player_1 ? props.players.player_2 : props.players.player_1,
+				label: state.activePlayer.label === 'X' ? 'O' : 'X'
 			}
-		});
+		}));
 	}
 
-	setHistory (move) {
-		this.setState({
-			history: [...this.state.history, move]
-		});
+	setHistory = (move, player)=> {
+		this.setState(state => ({
+			history: [...state.history, {move, player}]
+		}));
+	}
+
+	afterMoveAction = move => {
+		this.setHistory(move, this.state.activePlayer.name);
+		this.changeActivePlayer();
 	}
 
 	render() {
 		return (
 			<div className="game">
 				<MoveList list={this.state.history} />
-				<Board />
+				<Board
+					onMove={this.afterMoveAction}
+					size={3}
+					activeLabel={this.state.activePlayer.label} />
 			</div>
 		)
 	}
