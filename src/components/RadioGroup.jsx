@@ -22,7 +22,7 @@ function RadioGroup ({label, list, defaultChecked, onChange}) {
 				})
 			}
 		</fieldset>
-	)
+	);
 }
 
 RadioGroup.propTypes = {
