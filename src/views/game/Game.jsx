@@ -32,12 +32,14 @@ function checkWinner (board, winMaps, player) {
 
 	for (let i = 0; i < winMaps.length; i++) {
 		const res = creteCheckingLine(winMaps[i], board).every(el => el === player.label);
-		if (res) return player;
+		if (res) return {...player, status: 'winner'};
+	}
+
+	if (!board.includes(null)) {
+		return {status: 'draw'};
 	}
 	return null;
 }
-
-
 
 class Game extends React.Component {
 	constructor (props) {

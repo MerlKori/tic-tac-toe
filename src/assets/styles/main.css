@@ -71,3 +71,10 @@
 	align-items: center;
 	border: 1px solid var(--c-grey-5);
 }
+
+
+/* Result view */
+.game-result {
+	padding: 20px;
+	text-align: center;
+}
