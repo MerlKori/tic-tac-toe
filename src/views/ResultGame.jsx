@@ -6,7 +6,7 @@ function Result ({winner}) {
 		<div className="game-result">
 			{winner.name}
 		</div>
-	)
+	);
 }
 
 Result.propTypes = {

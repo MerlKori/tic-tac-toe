@@ -43,20 +43,6 @@
 	cursor: pointer;
 	transition: all .3s;
 }
-/* .btn-round {
-	position: relative;
-	display: inline-block;
-	width: 2em;
-	height: 2em;
-	border-radius: 50%;
-	line-height: 1;
-	user-select: none;
-	overflow: hidden;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	transition: all .3s;
-} */
 
 /* click style */
 .btn-click {

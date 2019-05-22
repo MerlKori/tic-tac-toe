@@ -1,0 +1,18 @@
+.scrollbar { /* Forr FF, work with version 64 and older */
+	scrollbar-width: thin;
+	scrollbar-color: var(--c-blue-5) var(--c-grey-2);
+}
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+::-webkit-scrollbar-track {
+	background-color: var(--c-grey-2);
+}
+::-webkit-scrollbar-track:hover {
+	background-color: var(--c-grey-3);
+}
+::-webkit-scrollbar-thumb {
+	background: var(--c-grey-5);
+	border-radius: 10px;
+}

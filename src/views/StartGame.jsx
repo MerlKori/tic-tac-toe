@@ -7,7 +7,7 @@ import RadioGroup from '../components/RadioGroup';
 
 function StartView ({players, onChangeName, levels, activeLevel, onChangeSetting}) {
 	return (
-		<div className="start-view">
+		<div className="container start-view">
 			{
 				Object.keys(players).map((key, idx) => {
 					return (
@@ -28,7 +28,7 @@ function StartView ({players, onChangeName, levels, activeLevel, onChangeSetting
 
 			<Link
 				to={routerList.game}
-				className="users">start</Link>
+				className="btn btn--blue-2 mx-3 mt-3">start</Link>
 		</div>
 	)
 }

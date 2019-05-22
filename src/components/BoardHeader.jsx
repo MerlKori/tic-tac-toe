@@ -2,15 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function getLabelClasses (active) {
-	return active ? 'bla bla--active' : 'bla';
+	return active ? 'board__header-title board__header-title--active mx-2' : 'board__header-title mx-2';
 }
 
-function BoardHeader ({players, activePlayer}) {
+function BoardHeader ({players, activePlayer, children}) {
 	return (
-		<ul>
+		<ul className="board__header my-2">
 			{
-				Object.keys(players).map((key, idx) => <li key={idx} className={getLabelClasses(activePlayer === players[key])}>{players[key]}</li>)
+				Object.keys(players).map((key, idx) => {
+					return (
+						<li
+							key={idx}
+							className={getLabelClasses(activePlayer === players[key])}
+						>{players[key]}</li>
+					);
+				})
 			}
+			{children}
 		</ul>
 	)
 }

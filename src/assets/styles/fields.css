@@ -1,7 +1,7 @@
 input,
 textarea {
 	--c-placeholder: rgba(0,0,0, .3);
-	--c-border: var(--c-grey-4);
+	--c-border: var(--c-grey-5);
 }
 input:focus,
 textarea:focus,
@@ -10,7 +10,8 @@ textarea:focus,
 	--c-border: var(--c-blue-4);
 }
 
-input,
+input[type="text"],
+input[type="number"],
 textarea {
 	width: 100%;
 	border: 1px solid var(--c-border);

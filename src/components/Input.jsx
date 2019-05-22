@@ -6,6 +6,7 @@ function Input ({playerName, playerKey, onChangeName}) {
 		<input
 			onChange={e => onChangeName(playerKey, e.target.value)}
 			value={playerName}
+			className="my-2"
 			placeholder="Player name"
 			type="text"/>
 	)

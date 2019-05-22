@@ -49,17 +49,11 @@ class Game extends React.Component {
 		};
 	}
 
-	setBoardData = idx => {
-		this.setState(changeBoardData(this.state.activePlayer.label, idx))
-	}
+	setBoardData = idx => this.setState(changeBoardData(this.state.activePlayer.label, idx))
 
-	changeActivePlayer = () => {
-		this.setState(changeActivePlayerData);
-	}
+	changeActivePlayer = () => this.setState(changeActivePlayerData);
 
-	setHistory = (move, player) => {
-		this.setState(changeHistory(move, player));
-	}
+	setHistory = (move, player) => this.setState(changeHistory(move, player));
 
 	handlerMove = cellIdx => {
 		if (!!this.state.board[cellIdx]) return;
@@ -69,12 +63,10 @@ class Game extends React.Component {
 		this.setHistory(cellIdx, this.state.activePlayer.name);
 	}
 
-	restart = () => {
-		this.setState(resetState(this.props.setting.size, this.props.players, labels));
-	}
+	restart = () => this.setState(resetState(this.props.setting.size, this.props.players, labels));
 
 	componentDidUpdate(prevProps, prevState) {
-		const winner = checkWinner (this.state.board, this.props.setting.winnerMaps, prevState.activePlayer)
+		const winner = checkWinner (this.state.board, this.props.setting.winnerMaps, prevState.activePlayer);
 
 		if (!!winner) {
 			this.props.onWinner(winner);
@@ -84,23 +76,26 @@ class Game extends React.Component {
 
 	render() {
 		return (
-			<div className="game">
+			<div className="container game border">
 				<BoardHeader
 					players={this.props.players}
-					activePlayer={this.state.activePlayer.name} />
+					activePlayer={this.state.activePlayer.name} >
+					<Link
+						to={routerList.start}
+						className="btn btn--green-5 mx-2">to beginning</Link>
+					<button
+						onClick={this.restart}
+						className="btn btn--red-2 mx-2">restart</button>
+				</BoardHeader>
 
-				<Board
-					board={this.state.board}
-					onMove={this.handlerMove} />
+				<div className="container--flex game__main">
+					<Board
+						board={this.state.board}
+						onMove={this.handlerMove}
+						boardSize={this.props.setting.size} />
 
-				<MoveList list={this.state.history} />
-
-				<Link
-					to={routerList.start}
-					className="btn ">to beginning</Link>
-				<button
-					onClick={this.restart}
-					className="btn">restart</button>
+					<MoveList list={this.state.history} />
+				</div>
 			</div>
 		)
 	}
